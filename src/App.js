@@ -10,10 +10,21 @@ function App() {
     {id:3, title: 'Action 3'}
   ]);
 
+  const handleAppClick = (item) => {
+    const index = todoItems.findIndex(x => x.id === item.id);
+    if (index < 0) return;
+
+    const newTodoItems = [...todoItems];
+    newTodoItems.splice(index, 1);
+
+    setTodoItems(newTodoItems);
+
+  }
+
   return (
     <div className="App"> 
     <h1> To do List</h1>
-      <TodoList list={todoItems} />
+      <TodoList list={todoItems} onItemClick={handleAppClick}/>
     </div>
 
   );

@@ -3,23 +3,31 @@ import PropTypes from 'prop-types';
 
 TodoList.propTypes = {
     list : PropTypes.array,
-    onClick : PropTypes.func 
-
+    onItemClick : PropTypes.func 
 };
 
 TodoList.defaultProps = {
     list : [],
-    onClick: null
+    onItemClick: null
 }
+
 
 function TodoList(props) {
     
-    const { list, onClick } = props;
+    const { list, onItemClick } = props;
 
+    const handleItemClick = (item) => {
+         if (onItemClick) { 
+            onItemClick(item)
+        }
+    }
     return (
         <ul>
         {list.map( (item) => 
-            <li key={item.id}> 
+            <li 
+                key={item.id}
+                onClick={() => handleItemClick(item)}
+            > 
                 {item.title}
             </li>
         )}
