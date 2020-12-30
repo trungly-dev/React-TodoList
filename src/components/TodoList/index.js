@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 TodoList.propTypes = {
     list : PropTypes.array,
-    onClick : PropTypes.func
+    onClick : PropTypes.func 
     
 };
 
@@ -15,7 +15,7 @@ TodoList.defaultProps = {
 function TodoList(props) {
     
     const { list, onClick } = props;
-    
+
     return (
         <ul>
         {list.map( (item) => 
