@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 TodoList.propTypes = {
     list : PropTypes.array,
     onClick : PropTypes.func 
-    
+
 };
 
 TodoList.defaultProps = {
