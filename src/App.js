@@ -1,5 +1,6 @@
 import React, { useState }  from 'react';
 import './App.css';
+import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 
 function App() { 
@@ -21,9 +22,23 @@ function App() {
 
   }
 
+  const handleTodoFormSubmit = (formValues) => {
+    
+    const newList = [...todoItems, {
+      id: todoItems.length + 1,
+      ...formValues
+    } ];
+ 
+    setTodoItems(newList);
+
+
+
+  }
+
   return (
     <div className="App"> 
     <h1> To do List</h1>
+      <TodoForm   onFormSubmit={handleTodoFormSubmit}  />
       <TodoList list={todoItems} onItemClick={handleAppClick}/>
     </div>
 
